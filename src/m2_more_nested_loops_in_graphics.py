@@ -4,8 +4,8 @@ in the context of TWO-DIMENSIONAL GRAPHICS.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Matt Hummel.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -50,9 +50,17 @@ def draw_upside_down_wall(rectangle, n, window):
     and n is nonnegative.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     Some tests are already written for you (above).
     # -------------------------------------------------------------------------
+
+    for k in range(n):
+        for j in range((k)):
+            c1 = rg.Point(rectangle.corner_1.x+rectangle.get_width()*j-rectangle.get_width()*k*0.5,rectangle.corner_1.y-rectangle.get_height()*k)
+            c2 = rg.Point(rectangle.corner_2.x+rectangle.get_width()*j-rectangle.get_width()*k*0.5,rectangle.corner_2.y-rectangle.get_height()*k)
+            rect = rg.Rectangle(c1,c2)
+            rect.attach_to(window)
+    window.render()
 
 
 # -----------------------------------------------------------------------------
